@@ -1,0 +1,16 @@
+Package: StatComp22083
+Type: Package
+Title: estimate probabilities based on 2PL IRT model
+Version: 1.0
+Date: 2022-11-25
+Author: Litian Xu
+Maintainer: Litian Xu <xlt@mail.ustc.edu.cn>
+Description: This package is created for computing item response probabilities and estimating parameters based on 2PL(discrimination and difficulty parameters) IRT model. Through MCMC method(using Gibbs update), we can obtain estimates of these two parameters and ability parameter of students.
+License: GPL (>= 2)
+Imports: Rcpp, stats,ltm, MASS, bootstrap, boot, microbenchmark, DAAG, scales, latex2exp, knitr, pander
+LinkingTo: Rcpp
+RoxygenNote: 7.2.2
+Encoding: UTF-8
+VignetteBuilder: knitr
+URL: https://github.com/xltskr/StatComp22083
+BugReports: https://github.com/xltskr/StatComp22083/issues

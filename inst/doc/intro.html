@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="22083" />
+
+
+<title>intro</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">intro</h1>
+<h4 class="author">22083</h4>
+<h4 class="date">2022/11/25</h4>
+
+
+
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p><em>StatComp22083</em> is a simple R package developed to compute
+item response probabilities and estimate parameters based on
+two-parameter logistic(2PL, discrimination and difficulty parameters)
+IRT model IRT model. Through MCMC method(using Gibbs update), we can
+obtain estimates of these two parameters and ability parameter of
+students. The dataset is required to be distichous.</p>
+</div>
+<div id="loglik-function" class="section level2">
+<h2>loglik function</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> loglikC<span class="op">(</span><span class="dt">double</span> theta<span class="op">,</span> <span class="dt">double</span> a<span class="op">,</span> <span class="dt">double</span> b<span class="op">,</span> <span class="dt">int</span> x<span class="op">){</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> p <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span><span class="dv">1</span> <span class="op">+</span> exp<span class="op">(</span>a<span class="op">*(</span>b<span class="op">-</span>theta<span class="op">)));</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> logp <span class="op">=</span> x<span class="op">*</span>log<span class="op">(</span>p<span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="dv">1</span><span class="op">-</span>x<span class="op">)*</span>log<span class="op">(</span><span class="dv">1</span><span class="op">-</span>p<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> logp<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">loglikC</span>(<span class="dv">2</span>,<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span></code></pre></div>
+</div>
+<div id="irt_2pl-function" class="section level2">
+<h2>irt_2pl function</h2>
+<p>The most commonly used IRT model is two-parameter logistic
+model(2PL). Denote X as a distichous variable, X=1 if the student
+responses correctly to the item, otherwise X=0. The probability that a
+student with ability <span class="math inline">\(\theta\)</span>
+responses correctly to an item with dicrimination a and difficulty b is
+given by</p>
+<p><span class="math display">\[P(X=1)=\frac{\exp\{a(\theta-b)\}}{1+\exp\{a(\theta-b)\}}=\frac1{1+\exp\{-a(\theta-b)\}},\quad
+i=1,...N; j=1,..., J\]</span> Suppose that there are J students and N
+items, the probability that the j-th student responses correctly to the
+i-th item is <span class="math display">\[P(X_{ij}=1)=\frac{\exp\{a_j(\theta_i-b_j)\}}{1+\exp\{a_j(\theta_i-b_j)\}}=\frac1{1+\exp\{a_j(b_j-\theta_i)\}},\quad
+i=1,...N; j=1,..., J\]</span> We use the following function ‘irt_2pl’ to
+compute item response probabilities based on 2PL. The function is
+vectorized.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>irt_2pl <span class="ot">&lt;-</span> <span class="cf">function</span>(a,b,theta){</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(a<span class="sc">*</span><span class="fu">outer</span>(b,theta,<span class="st">&quot;-&quot;</span>)))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (p)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="loglik-function-1" class="section level2">
+<h2>loglik function</h2>
+<p>We use the following function ‘loglik’ to log-likelihood function.
+Due to distichous response ‘x’, <span class="math inline">\(f(x|p)=p^x(1-p)^{1-x}\)</span>. After taking the
+logarithm, we can obtain log-likelihood function <span class="math inline">\(x\log(p)+(1-x)\log(1-p)\)</span>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>loglik <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,a,b,x){</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> <span class="fu">irt_2pl</span>(a,b,theta)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  logp <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="fu">log</span>(p) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>x)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">1</span><span class="sc">-</span>p)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (logp)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The two above functions are integrated into one cpp function
+‘loglikC’.</p>
+</div>
+<div id="update_theta-function" class="section level2">
+<h2>update_theta function</h2>
+<p>Next, we use gibbs sampler to obtain estimates of parameters(refer to
+the book <em>Item Response Theory Parameter Estimation Techniques, 2rd
+edition</em>) . During samples generation, we need to update <span class="math inline">\(\theta,a,b\)</span> respectively. The following
+three functions are displayed.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>update_theta <span class="ot">&lt;-</span> <span class="cf">function</span>(theta,a,b,x,sigma){</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  theta_candidate <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(theta),theta,sigma)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  rho <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">apply</span>(<span class="fu">loglik</span>(theta_candidate,a,b,x),<span class="dv">2</span>,sum)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">apply</span>(<span class="fu">loglik</span>(theta,a,b,x),<span class="dv">2</span>,sum) <span class="sc">+</span> <span class="fu">dnorm</span>(theta_candidate,<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">log=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> <span class="fu">dnorm</span>(theta,<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  ind_update <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">*</span>(rho <span class="sc">&gt;</span> <span class="fu">runif</span>(<span class="fu">length</span>(theta),<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  theta <span class="ot">&lt;-</span> ind_update<span class="sc">*</span>theta_candidate <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>ind_update)<span class="sc">*</span>theta</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (theta)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="update_a-function" class="section level2">
+<h2>update_a function</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>update_a <span class="ot">&lt;-</span> <span class="cf">function</span>(a,theta,b,x,sigma){</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  a_candidate <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(a),a,sigma)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">any</span>(a_candidate <span class="sc">&lt;</span> <span class="dv">0</span>)){</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    a_candidate[a_candidate <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> a[a_candidate <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="co">#automatically reject negative candidates</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  rho <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">apply</span>(<span class="fu">loglik</span>(theta,a_candidate,b,x),<span class="dv">1</span>,sum)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> <span class="fu">apply</span>(<span class="fu">loglik</span>(theta,a,b,x),<span class="dv">1</span>,sum) <span class="sc">+</span> <span class="fu">dlnorm</span>(a_candidate,<span class="dv">0</span>,<span class="fl">0.5</span>,<span class="at">log=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> <span class="fu">dlnorm</span>(a,<span class="dv">0</span>,<span class="fl">0.5</span>,<span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  ind_update <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">*</span>(rho <span class="sc">&gt;</span> <span class="fu">runif</span>(<span class="fu">length</span>(a),<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> ind_update<span class="sc">*</span>a_candidate <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>ind_update)<span class="sc">*</span>a</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (a)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="update_b-function" class="section level2">
+<h2>update_b function</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>update_b <span class="ot">&lt;-</span> <span class="cf">function</span>(b,theta,a,x,sigma){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  b_candidate <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(b),b,sigma)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  rho <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fu">apply</span>(<span class="fu">loglik</span>(theta,a,b_candidate,x),<span class="dv">1</span>,sum)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> <span class="fu">apply</span>(<span class="fu">loglik</span>(theta,a,b,x),<span class="dv">1</span>,sum) <span class="sc">+</span> <span class="fu">dnorm</span>(b_candidate,<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">log=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> <span class="fu">dnorm</span>(b,<span class="dv">0</span>,<span class="dv">1</span>,<span class="at">log=</span><span class="cn">TRUE</span>))</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  ind_update <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">*</span>(rho <span class="sc">&gt;</span> <span class="fu">runif</span>(<span class="fu">length</span>(b),<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  b <span class="ot">&lt;-</span> ind_update<span class="sc">*</span>b_candidate <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>ind_update)<span class="sc">*</span>b</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (b)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="gibbs_mcmc-function" class="section level2">
+<h2>gibbs_mcmc function</h2>
+<p>Now we can insert above three functions into ‘gibbs_mcmc’ to obtain
+estimates of parameter <span class="math inline">\(\theta,a,b\)</span>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gibbs_mcmc <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">n_itr=</span><span class="fl">3e3</span>){</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  N <span class="ot">&lt;-</span> <span class="fu">dim</span>(x)[<span class="dv">2</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  J <span class="ot">&lt;-</span> <span class="fu">dim</span>(x)[<span class="dv">1</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  theta_post_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span>n_itr,<span class="at">ncol=</span>N)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  a_post_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span>n_itr,<span class="at">ncol=</span>J)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  b_post_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span>n_itr,<span class="at">ncol=</span>J)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  theta_post_mat[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(N,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  a_post_mat[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(J,<span class="dv">0</span>,<span class="fl">0.5</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  b_post_mat[<span class="dv">1</span>,] <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(J,<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>n_itr){</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    theta_post_mat[i,] <span class="ot">&lt;-</span> <span class="fu">update_theta</span>(theta_post_mat[i<span class="dv">-1</span>,],a_post_mat[i<span class="dv">-1</span>,],b_post_mat[i<span class="dv">-1</span>,],x,<span class="fl">0.1</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    a_post_mat[i,] <span class="ot">&lt;-</span> <span class="fu">update_a</span>(a_post_mat[i<span class="dv">-1</span>,],theta_post_mat[i,],b_post_mat[i<span class="dv">-1</span>,],x,<span class="fl">0.1</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    b_post_mat[i,] <span class="ot">&lt;-</span> <span class="fu">update_b</span>(b_post_mat[i<span class="dv">-1</span>,],theta_post_mat[i,],a_post_mat[i,],x,<span class="fl">0.1</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">list</span>(theta_post_mat,a_post_mat,b_post_mat)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> (out)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="estimater-function" class="section level2">
+<h2>estimateR function</h2>
+<p>Due to existence of burn-in period, we take part of sample values and
+take the average. What’s more, the following function permits several
+chains to ensure convergence.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>estimateR<span class="ot">&lt;-</span><span class="cf">function</span>(x,<span class="at">n_chain=</span><span class="dv">3</span>,<span class="at">burn=</span><span class="fl">1e3</span>,<span class="at">n_itr=</span><span class="fl">3e3</span>){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  d<span class="ot">&lt;-</span><span class="fu">dim</span>(x)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  ns<span class="ot">&lt;-</span>n_itr<span class="sc">-</span>burn</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  theta_post<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">nrow=</span>ns<span class="sc">*</span>n_chain,<span class="at">ncol=</span>d[<span class="dv">2</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  a_post<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">nrow=</span>ns<span class="sc">*</span>n_chain,<span class="at">ncol=</span>d[<span class="dv">1</span>])</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  b_post<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">nrow=</span>ns<span class="sc">*</span>n_chain,<span class="at">ncol=</span>d[<span class="dv">1</span>])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_chain){</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    chain<span class="ot">&lt;-</span><span class="fu">gibbs_mcmc</span>(x,n_itr)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    theta_post[((ns<span class="sc">*</span>(i<span class="dv">-1</span>)<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>(ns<span class="sc">*</span>i)),]<span class="ot">&lt;-</span>chain[[<span class="dv">1</span>]][(burn<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>n_itr,]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    a_post[((ns<span class="sc">*</span>(i<span class="dv">-1</span>)<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>(ns<span class="sc">*</span>i)),]<span class="ot">&lt;-</span>chain[[<span class="dv">2</span>]][(burn<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>n_itr,]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    b_post[((ns<span class="sc">*</span>(i<span class="dv">-1</span>)<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>(ns<span class="sc">*</span>i)),]<span class="ot">&lt;-</span>chain[[<span class="dv">3</span>]][(burn<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span>n_itr,]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  theta_eap <span class="ot">&lt;-</span> <span class="fu">apply</span>(theta_post,<span class="dv">2</span>,mean)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  a_eap <span class="ot">&lt;-</span> <span class="fu">apply</span>(a_post,<span class="dv">2</span>,mean)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  b_eap <span class="ot">&lt;-</span> <span class="fu">apply</span>(b_post,<span class="dv">2</span>,mean)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">theta=</span>theta_eap,<span class="at">a=</span>a_eap,<span class="at">b=</span>b_eap))</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ltm)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># take the dataset &#39;LSAT&#39; in package &#39;ltm&#39; for example</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>est<span class="ot">&lt;-</span><span class="fu">estimateR</span>(<span class="fu">t</span>(LSAT))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>est<span class="sc">$</span>theta</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>est<span class="sc">$</span>a</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>est<span class="sc">$</span>b</span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
